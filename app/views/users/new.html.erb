@@ -1,0 +1,34 @@
+<h1>New User</h1>
+
+
+<div class="col-md-6 col-md-offset-3" id="signup-wrap">
+   <br/>
+   <div class="form-group" role="group">
+      <%= form_for @user do |f| %>
+      <div class="form-group" role="group">
+      	<%=	f.text_field :username, placeholder: "Username", class: "form-control" %>
+      </div>
+      <div class="form-group" role="group">
+      	<%=	f.text_field :first_name, placeholder: "First Name", class: "form-control" %>
+      </div>
+      <div class="form-group" role="group">
+      	<%= f.text_field :last_name, placeholder: "Last Name", class: "form-control" %>
+      </div>
+      <div class="form-group" role="group">
+      	<%= f.email_field :email, placeholder: "Email", class: "form-control" %>
+      </div>
+      <div class="form-group" role="group">
+      	<%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+      </div>
+      <div class="form-group" role="group">
+      	<%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: "form-control" %>
+      </div>
+
+      <div class="form-group" role="group">
+      	<%= f.submit "Create Account", class: "btn btn-block" %>
+      </div>
+
+      <% end %>
+   </div>
+   <a href="/sessions/new">Already have an account?</a>
+</div>
