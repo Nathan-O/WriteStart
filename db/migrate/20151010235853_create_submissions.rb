@@ -6,7 +6,14 @@ class CreateSubmissions < ActiveRecord::Migration
       t.string :genre
       t.text :summary
 
+      t.belongs_to :user, index: true
+
       t.timestamps null: false
     end
   end
 end
+
+
+
+# t.integer :user_id
+# t.integer :edit_id

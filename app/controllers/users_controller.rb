@@ -37,7 +37,7 @@ class UsersController < ApplicationController
    def update
       user_id = params[:id]
       @user = User.find_by_id(user_id)
-      updated_attributes = params.require(:user).permit(:first_name, :last_name, :username, :current_city, :password)
+      updated_attributes = params.require(:user).permit(:username, :first_name, :last_name, :password)
 
       @user.update_attributes(updated_attributes)
 

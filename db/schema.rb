@@ -17,18 +17,26 @@ ActiveRecord::Schema.define(version: 20151010235941) do
     t.text     "notes"
     t.text     "line_edits"
     t.text     "suggestion"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "submission_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
+
+  add_index "edits", ["submission_id"], name: "index_edits_on_submission_id"
+  add_index "edits", ["user_id"], name: "index_edits_on_user_id"
 
   create_table "submissions", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
     t.string   "genre"
     t.text     "summary"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "submissions", ["user_id"], name: "index_submissions_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
@@ -36,8 +44,14 @@ ActiveRecord::Schema.define(version: 20151010235941) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "pseudonym"
+    t.string   "profile_photo_url"
+    t.string   "publications_title"
+    t.string   "publications_url"
+    t.string   "user_site_title"
+    t.string   "user_site_url"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
 end
