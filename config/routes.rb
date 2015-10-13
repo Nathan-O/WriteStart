@@ -32,9 +32,10 @@ Rails.application.routes.draw do
 
    get "/submissions/:id/edit", to: "submissions#edit"
 
-   patch "/submissions/:id/edit", to: "submission#update"
+   patch "/submissions/:id/edit", to: "submissions#update"
 
    # Edit Routes #
+   get "/submissions/:id/edits/new", to: "edits#new"
 end
 
 #| Prefix Verb  URI Pattern                     Controller#Action
