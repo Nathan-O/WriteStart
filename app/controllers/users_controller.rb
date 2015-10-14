@@ -32,12 +32,13 @@ class UsersController < ApplicationController
       current_user
       id = params[:id]
       @user = User.find_by_id(id)
+      render :edit
    end
 
    def update
       user_id = params[:id]
       @user = User.find_by_id(user_id)
-      updated_attributes = params.require(:user).permit(:username, :first_name, :last_name, :password)
+      updated_attributes = params.require(:user).permit(:username, :first_name, :last_name, :pseudonym, :password)
 
       @user.update_attributes(updated_attributes)
 

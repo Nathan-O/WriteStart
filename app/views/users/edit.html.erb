@@ -1,0 +1,66 @@
+<div class="container">
+
+   <header>
+      <div class="page-header">
+         <h1>Edit <%= @user.first_name %>'s Profile</h1>
+         <h2><small>Add Your Story to the Editorial Pile</small></h2>
+      </div>
+   </header>
+
+<div class="row">
+   <div class="col-md-6 col-md-offset-3">
+      <ul class="list-unstyled">
+         <li> <%= @user.first_name %> </li>
+         <li> <%= @user.last_name %> </li>
+         <li> <%= @user.username %> </li>
+         <li> <%= @user.pseudonym || "(none listed)" %> </li>
+
+   <div class="form-wrapper col-md-6 col-md-offset-3">
+   	<br>
+   	<div class="form-group">
+   		<%= form_for @user, method: "patch" do |f| %>
+            <fieldset disabled>
+               <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
+            </fieldset>
+            <br>
+   			<%= f.text_field :first_name, placeholder: "First Name", class: "form-control" %>
+   			<br>
+   			<%= f.text_field :last_name, placeholder: "Last Name", class: "form-control" %>
+   			<br>
+   		 	<%= f.text_field :username, placeholder: "Username", class: "form-control" %>
+   			<br>
+   		 	<%= f.text_field :pseudonym, placeholder: "Pseudonym", class: "form-control" %>
+   			<br>
+   			<%= f.password_field :password, placeholder: "Confirm Password to Update Profile", class: "form-control" %>
+   			<br>
+   			<%= f.submit "Update Profile", class: "btn btn-block" %>
+
+   		<% end %>
+   	</div>
+   </div>
+
+
+</div>
+
+<!--
+
+NOTE: To these inputs add labels that display the current value that user has (thier current first name or user name whatever)
+      For the publicatinos section, user can delete publications.
+
+ f.text_field :pseudonym, placeholder: "Pseudonym", class: "form-control"
+
+create_table "users", force: :cascade do |t|
+  t.string   "username"
+  t.string   "first_name"
+  t.string   "last_name"
+  t.string   "email"
+  t.string   "password_digest"
+  t.string   "pseudonym"
+  t.string   "profile_photo_url"
+  t.string   "publications_title"
+  t.string   "publications_url"
+  t.string   "user_site_title"
+  t.string   "user_site_url"
+  t.datetime "created_at",         null: false
+  t.datetime "updated_at",         null: false
+-->
