@@ -25,6 +25,10 @@ class SubmissionsController < ApplicationController
 
 
    def show
+      @submission = Submission.find(params[:id])
+      @author = User.find(@submission.user_id)
+      @user = current_user
+      render :show
    end
 
    def edit

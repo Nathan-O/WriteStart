@@ -157,6 +157,23 @@
 							</div>
 							<div class="panel-body">
 								<ul class="list-unstyled">
+
+									<% @submissions.each do |submission| %>
+										<% @edits = submission.edits %>
+										<% @edits.each do |edit| %>
+										<% @editor = edit.user %>
+										<li>
+											<div>
+												<ul class="list-unstyled">
+													<li> Edited by: <%= @editor.first_name %> <%= @editor.last_name[0] %>. </li>
+													<li> <%= edit %> </li>
+													<li> <a href="/edits/<%= edit.id %>">See Edit</a> </li>
+												</ul>
+											</div>
+										</li>
+										<% end %>
+									<% end %>
+
 									<li>This will be a table</li>
 									<li>Words: Words words</li>
 									<li>Words: Words words</li>
@@ -174,6 +191,11 @@
 							</div>
 							<div class="panel-body">
 								<ul class="list-unstyled">
+									<!-- *** USER CREATED EDITS *** -->
+									<% @user_edits.each do |edit| %>
+									<li> <%= edit %> </li>
+									<li> <a href="/edits/<%= edit.id %>">See Edit</a> </li>
+									<% end %>
 									<li>This will be a table</li>
 									<li>Words: Words words</li>
 									<li>Words: Words words</li>
@@ -224,7 +246,7 @@
 								<li>
 									<div class="row">
 										<div id="media img-wrap">
-											<img class="media-object img-thumbnail" id="minpro-pic" src="/static/img/ProfilePic_placeholder.png">
+											<img class="media-object img-thumbnail" id="minpro-pic" src="/assets/ProfilePic_placeholder.png" alt="/assets/ProfilePic_placeholder.png" height="64" width="64">
 										</div>
 										<div class="friend-username">
 											<h4>Username</h4>
@@ -234,7 +256,7 @@
 								<li>
 									<div class="row">
 										<div id="media img-wrap">
-											<img class="media-object img-thumbnail" id="minpro-pic" src="/static/img/ProfilePic_placeholder.png">
+											<img class="media-object img-thumbnail" id="minpro-pic" src="/assets/ProfilePic_placeholder.png" alt="/assets/ProfilePic_placeholder.png" height="64" width="64">
 										</div>
 										<div class="friend-username">
 											<h4>Username</h4>
@@ -244,7 +266,7 @@
 								<li>
 									<div class="row">
 										<div id="media img-wrap">
-											<img class="media-object img-thumbnail" id="minpro-pic" src="/static/img/ProfilePic_placeholder.png">
+											<img class="media-object img-thumbnail" id="minpro-pic" src="/assets/ProfilePic_placeholder.png" alt="/assets/ProfilePic_placeholder.png" height="64" width="64">
 										</div>
 										<div class="friend-username">
 											<h4>Username</h4>
@@ -254,7 +276,7 @@
 								<li>
 									<div class="row">
 										<div id="media img-wrap">
-											<img class="media-object img-thumbnail" id="minpro-pic" src="/static/img/ProfilePic_placeholder.png">
+											<img class="media-object img-thumbnail" id="minpro-pic" src="/assets/ProfilePic_placeholder.png" alt="/assets/ProfilePic_placeholder.png" height="64" width="64">
 										</div>
 										<div class="friend-username">
 											<h4>Username</h4>
@@ -264,7 +286,7 @@
 								<li>
 									<div class="row">
 										<div id="media img-wrap">
-											<img class="media-object img-thumbnail" id="minpro-pic" src="/static/img/ProfilePic_placeholder.png">
+											<img class="media-object img-thumbnail" id="minpro-pic" src="/assets/ProfilePic_placeholder.png" alt="/assets/ProfilePic_placeholder.png" height="64" width="64">
 										</div>
 										<div class="friend-username">
 											<h4>Username</h4>

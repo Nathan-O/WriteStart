@@ -24,10 +24,20 @@
       <p> Edited By: <%= @editor.first_name %> <%= @editor.last_name[0] %>. </p>
 
       <%= form_for @edit, url: "/edits", method: "post" do |f| %>
+      <!-- <input type="hidden" id="user_id" name="edit[user_id]" value="<%= @editor.id %>">
+      <input type="hidden" id="submission_id" name="edit[submission_id]" value="<%= @submission.id %>"> -->
 
       <% content = simple_format(@submission.content) %>
       <textarea name="edit[line_edits]" id="line-editor"> <%= content %> </textarea>
-      <%= f.submit "Create Edit", class: "btn btn-block" %>
+      <%= f.hidden_field :user_id, { :value => @editor.id} %>
+      <%= f.hidden_field :submission_id, { :value => @submission.id} %>
+
+      <!-- <input type="hidden" id="user_id" name="edit[user_id]" value="#{@editor.id}" />
+      <input type="hidden" id="submission_id" name="edit[submission_id]" value="#{@submission.id}" /> -->
+
+
+
+      <%= f.submit "Post Edit", class: "btn btn-block" %>
       <% end %>
    </div>
 

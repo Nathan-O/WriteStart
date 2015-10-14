@@ -10,7 +10,27 @@ class EditsController < ApplicationController
    end
 
    def create
-      p params
+
+      #subId = params[:submission_id]
+      @user = current_user
+      editInfo = params.require(:edit).permit(:line_edits, :user_id, :submission_id)
+
+      subId = editInfo[:submission_id]
+      p subId
+      @submission = Submission.find(subId)
+      @edit = Edit.new(editInfo)
+      if @edit.save
+         redirect_to "/submissions/#{@submission.id}"
+      else
+         render :new
+      end
+   end
+
+   def show
+      @edit = Edit.find(params[:id])
+      @submission = @edit.submission
+      @author = @submission.user
+      @editor = @edit.user
    end
 
    def destroy
@@ -20,12 +40,19 @@ end
 
 
 # create reference (from submissions controller)
-# subInfo = params.require(:submission).permit(:title, :content, :genre, :summary)
+#
+# editInfo = params.require(:edit).permit(:line_edits)
 # @user = current_user
-# @submission = Submission.new(subInfo)
+# @edit = Edit.new(editInfo)
 # if @submission.save
-#    @user.submissions << @submission
-#    redirect_to "/users/#{@user.id}"
+#    @user.edits << @user
+#    @submission.edits << @submission
+#    redirect_to "/submissions/#{@submission.id}"
 # else
 #    render :new
 # end
+
+# @edit.user << @user
+# @edit.submission << @submission
+#@user.edits << @user
+#@submission.edits << @submission

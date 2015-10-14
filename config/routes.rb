@@ -37,6 +37,7 @@ Rails.application.routes.draw do
    # Edit Routes #
    get "/submissions/:id/edits/new", to: "edits#new"
    post "/edits", to: "edits#create"
+   get "/edits/:id", to: "edits#show"
 end
 
 #| Prefix Verb  URI Pattern                     Controller#Action
