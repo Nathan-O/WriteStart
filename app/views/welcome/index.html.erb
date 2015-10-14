@@ -107,7 +107,7 @@
 								<h3> <%= submission.title %> </h3>
 								<% @user = submission.user %>
 								<h4> By: <%= @user.first_name %> <%= @user.last_name[0] %>. <small><%= submission.genre %></small></h4>
-
+								<!-- TAKES YOU TO EDIT PAGE -->
 								<a href="/submissions/<%= submission.id %>/edits/new">
 									<button class="btn btn-xs btn-default">Edit</button>
 								</a>

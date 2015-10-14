@@ -1,6 +1,11 @@
 class SubmissionsController < ApplicationController
    before_action :logged_in?, only: [:new]
 
+   def index
+      @submissions = Submission.all
+      render :index
+   end
+
    def new
       @user = current_user
       @submission = Submission.new

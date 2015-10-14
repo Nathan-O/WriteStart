@@ -1,16 +1,80 @@
 <!-- RAILS UPLOAD TEST -->
-<div class="row">
-   <div class="col-md-6 col-md-offset-3">
-      <h1>Rails File Upload <small>test</small></h1>
-      <div class="col-md-8 col-md-offset-2">
-         <%= form_for @submission, url: "/submissions", method: "post" do |f| %>
-            <%= f.text_field :title, placeholder: "Title", class: "form-control" %>
-            <%= f.select :genre, options_for_select(["Horror", "Science Fiction","Thriller"])   %>
-            <%= f.text_area :content, rows: 80, placeholder: "Your story text here...." %>
-            <%= f.text_area :summary, rows: 80, placeholder: "Summary text here...." %>
+<div class="container">
 
-            <%= f.submit "Add Story", class: "btn btn-block" %>
-         <% end %>
+   <header>
+      <div class="page-header">
+         <h1>Submission Form</h1>
+         <h2><small>Add Your Story to the Editorial Pile</small></h2>
+      </div>
+   </header>
+
+
+   <!-- BODY CONTENT -->
+   <div class="row">
+      <div class="col-md-8" id="disclaimer">
+         <h3>Things to consider...</h3>
+         <p>Bespoke ugh Bushwick, Odd Future Truffaut sriracha migas tousled fixie plaid Wes Anderson Tumblr semiotics kogi selvage. 8-bit try-hard kale chips squid, direct trade Blue Bottle salvia Marfa street art paleo semiotics hashtag. Pork belly Etsy umami Bushwick mlkshk, taxidermy irony swag pop-up Blue Bottle aesthetic selvage synth. Umami food truck normcore, disrupt dreamcatcher beard jean shorts crucifix gentrify direct trade gluten-free PBR typewriter hoodie. Sriracha jean shorts Schlitz, bicycle rights stumptown tofu DIY occupy Bushwick Intelligentsia Pitchfork lomo health goth bitters art party. Next level selfies jean shorts kitsch Carles bespoke, semiotics authentic YOLO Neutra cliche Odd Future Godard chambray master cleanse. Art party hella letterpress church-key, food truck authentic McSweeney's vegan you probably haven't heard of them crucifix.
+         <br>
+         Ethical lo-fi master cleanse, PBR&B blog Thundercats distillery whatever fanny pack selvage food truck pour-over next level narwhal kale chips. Distillery cornhole meggings, listicle hoodie Etsy lomo. Pop-up narwhal kogi PBR, post-ironic Austin retro viral yr plaid master cleanse. 8-bit slow-carb narwhal, Portland polaroid Echo Park yr vinyl leggings tilde trust fund. Fashion axe fixie organic tofu. Trust fund jean shorts occupy, twee mumblecore Marfa PBR&B +1 Odd Future drinking vinegar keytar ennui. Occupy Pitchfork Tumblr you probably haven't heard of them, direct trade swag normcore.</p>
       </div>
    </div>
+
+
+   <div class="col-md-8 col-md-offset-2" id="submit-form">
+      <%= form_for @submission, url: "/submissions", method: "post" do |f| %>
+         <div class="col-md-12">
+            <div class="form-group">
+               <%= f.text_field :title, placeholder: "Title", class: "form-control input-lg" %>
+            </div>
+            <div class="form-group">
+               <select name="submission[genre]" class="form-control selectpicker show-tick" id="submission_genre" title="Choose Genres that Apply" label="Genre">
+                  <optgroup label="Genre">
+                     <option value="General">General Fiction</option>
+   						<option value="Adventure">Adventure</option>
+   						<option value="Bizarro">Bizarro</option>
+   						<option value="Fantasy">Fantasy</option>
+   						<option value="Historical">Historical Fiction</option>
+   						<option value="Horror">Horror</option>
+   						<option value="Humor/Satire">Humor/Satire</option>
+   						<option value="Military/War">Military/War</option>
+   						<option value="Mystery/Crime">Mystery/Crime</option>
+   						<option value="Novel Chapter (Gen.)">Novel Chapter (General)</option>
+   						<option value="Offbeat/Odd">Offbeat/Odd</option>
+   						<option value="Romance">Romance</option>
+   						<option value="Sci-fi">Science Fiction</option>
+   						<option value="Short Story (Gen.)">Short Story (General)</option>
+   						<option value="Thriller/Suspense">Thriller/Suspense</option>
+   						<option value="Western">Western</option>
+   						<option value="Women's Lit.">Women's Literature</option>
+   						<option value="Young Adult">Young Adult</option>
+                  </optgroup>
+               </select>
+            </div>
+         </div>
+         <div class="form-group">
+            <%= f.text_area :content, rows: 35, placeholder: "Paste story text here...", class: "form-control" %>
+         </div>
+         <div class="form-group">
+            <%= f.text_area :summary, rows: 10, placeholder: "Add a short summary of the full story here...", class: "form-control" %>
+         </div>
+         <div class="form-group">
+            <%= f.submit "Add Story", class: "btn btn-block" %>
+         </div>
+      <% end %>
+   </div>
+
+
 </div>
+
+
+<!--
+SOME HOW ADD multiple SO IT LOOKS LIKE THIS:
+
+<select name="submission[genre]" class="form-control selectpicker show-tick" id="submission_genre" multiple title="Choose Genres that Apply" label="Genre">
+                                                                                                     ^ ^ ^
+
+<select name="submission[genre]" class="form-control selectpicker show-tick" id="submission_genre">
+   <option value="Horror">Horror</option>
+   <option value="Science Fiction">Science Fiction</option>
+   <option value="Thriller">Thriller</option>
+</select> -->

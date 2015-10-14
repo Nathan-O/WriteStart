@@ -7,10 +7,14 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- MAY NOT NEED HERE -->
+  <script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+  <script src="//cdn.ckeditor.com/4.5.4/full/ckeditor.js"></script>
   <!-- Fonts -->
   <link href='https://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
 </head>
 <body>
+   <%= render 'partials/navbar' %>
 
 <%= yield %>
 

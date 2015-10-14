@@ -1,9 +1,47 @@
+<head>
+   <script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+   <script src="//cdn.ckeditor.com/4.5.4/full/ckeditor.js"></script>
+   <script>
+      //CKEDITOR.replace( 'nope' );
+      tinymce.init({
+         selector:'#line-editor',
+         theme: "modern",
+      });
+   </script>
+</head>
+
 <div class="container">
    <header>
       <div class="page-header">
          <h1>Edit</h1>
       </div>
    </header>
+
+
+   <div>
+      <h1> <%= @submission.title %> </h1>
+      <p> Written By: <%= @author.first_name %> <%= @author.last_name[0] %>. </p>
+      <p> Edited By: <%= @editor.first_name %> <%= @editor.last_name[0] %>. </p>
+
+      <%= form_for @edit, url: "/edits", method: "post" do |f| %>
+
+      <% content = simple_format(@submission.content) %>
+      <textarea name="edit[line_edits]" id="line-editor"> <%= content %> </textarea>
+      <%= f.submit "Create Edit", class: "btn btn-block" %>
+      <% end %>
+   </div>
+
+<!--
+NOTES FOR NEXT TIME!!
+
+Turn this into a form that will save the edit content, and the user that created the edit.
+Edits should be able to be seen by the editor and the author.
+
+Side Note: *This is the last big one, make this work and its all styling from here on out, You got this!!!!!
+-->
+
+
+
 
    <div>
       <h1> <%= @submission.title %> </h1>

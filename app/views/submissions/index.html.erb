@@ -1,0 +1,18 @@
+<div class="container">
+   <header>
+      <div class="page-header">
+         <h1>Stories <small>list</small></h1>
+      </div>
+   </header>
+
+   <div class="stories">
+      <% @submissions.each do |submission| %>
+      <div class="col-md-8 col-md-offset-2">
+         <h3> <%= submission.title %> </h3>
+         <% @author = User.find(submission.user_id) %>
+         <p>By: <%= @author.first_name %> <%= @author.last_name[0] %>.</p>
+      </div>
+      <% end %>
+   </div>
+
+</div>
