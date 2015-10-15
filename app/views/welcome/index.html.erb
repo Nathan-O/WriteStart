@@ -1,19 +1,21 @@
-<h1>WriteStart</h1>
 
-<a href="/users/new">Sign Up</a>
 
-<div class="container" id="page-wrapper">
-			<header>
-				<div class="page-header">
-					<h1 class="page-title" id="site-title">Hello <small>World</small></h1>
-				</div>
-			</header>
+<!-- <h1>WriteStart</h1>
 
-			<br/>
+<a href="/users/new"><button type="button" class="btn btn-lg btn-warning">Sign Up</button></a> -->
+
+<div class="page-wrapper">
+	<header>
+		<div class="page-header">
+			<h1 class="page-title" id="site-title">WriteStart</h1>
+		</div>
+	</header>
+
 				<!-- Redirects to Login w/out HTTP request -->
 			<div class="button-group" role="group">
 				<a href="/sessions/new"><button type="button" class="btn btn-lg btn-warning">LogIn</button></a>
 				<a href="/fileTest"><button type="button" class="btn btn-lg btn-info">Test File Page</button></a>
+			</div>
 			<br/>
 
 
@@ -111,6 +113,9 @@
 								<a href="/submissions/<%= submission.id %>/edits/new">
 									<button class="btn btn-xs btn-default">Edit</button>
 								</a>
+								<a href="/submissions/<%= submission.id %>">
+					            <button class="btn btn-xs btn-info">Read</button>
+					         </a>
 
 								<% content = simple_format(submission.content) %>
 								<p> <%= content %></p>
@@ -185,18 +190,19 @@
 				<div class="col-md-12" id="footer-divider"></div>
 			</div>
 
-			<footer>
+	<footer>
+		<div class="row">
+			<div class="col-md-12" id="footer-container">
 				<div class="row">
-					<div class="col-md-12" id="footer-container">
-						<div class="row">
-							<div class="col-md-11" id="signature">
-								<p>Made by <a href="https://github.com/Nathan-O">Nathan-O</a></p>
-							</div>
-							<div class="col-md-1" id="nope-button">
-								<button type="submit" class="btn btn-xs btn-danger" id="testTest"><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span></button>
-							</div>
-						</div>
+					<div class="col-md-11" id="signature">
+						<p>Made by <a href="https://github.com/Nathan-O">Nathan-O</a></p>
+					</div>
+					<div class="col-md-1" id="nope-button">
+						<button type="submit" class="btn btn-xs btn-danger" id="testTest"><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span></button>
 					</div>
 				</div>
-			</footer>
+			</div>
 		</div>
+	</footer>
+
+</div>

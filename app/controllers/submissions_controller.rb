@@ -2,7 +2,7 @@ class SubmissionsController < ApplicationController
    before_action :logged_in?, only: [:new]
 
    def index
-      @submissions = Submission.all
+      @submissions = Submission.all.order("created_at DESC")
       render :index
    end
 
@@ -38,6 +38,12 @@ class SubmissionsController < ApplicationController
    end
 
    def destroy
+      id = params[:id]
+      submission = Submission.find(id)
+      submission.destroy
+
+      @user = current_user
+      redirect_to "/users/#{@user.id}"
    end
 
 end

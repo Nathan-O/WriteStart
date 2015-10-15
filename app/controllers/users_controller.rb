@@ -12,8 +12,9 @@ class UsersController < ApplicationController
    def show
      @user = User.find(params[:id])
      @submissions = @user.submissions
+     @submissions = @submissions.order("created_at DESC")
      @user_edits = @user.edits
-     
+
      @current_user = current_user
    end
 

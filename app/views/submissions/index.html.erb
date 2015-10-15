@@ -1,4 +1,4 @@
-<div class="container">
+<div class="page-wrapper">
    <header>
       <div class="page-header">
          <h1>Stories <small>list</small></h1>
@@ -11,6 +11,12 @@
          <h3> <%= submission.title %> </h3>
          <% @author = User.find(submission.user_id) %>
          <p>By: <%= @author.first_name %> <%= @author.last_name[0] %>.</p>
+         <a href="/submissions/<%= submission.id %>/edits/new">
+            <button class="btn btn-xs btn-default">Edit</button>
+         </a>
+         <a href="/submissions/<%= submission.id %>">
+            <button class="btn btn-xs btn-info">Read</button>
+         </a>
       </div>
       <% end %>
    </div>

@@ -35,13 +35,8 @@
             <% else %>
 
             <div id="init-user-btns">
-               <button data-toggle="modal" data-target="#loginModal" style="display: inline"
-                   class="btn btn-primary navbar-right navbar-btn">
-                 Log In
-               </button>
-               <button data-toggle="modal" data-target="#signUpModal" style="display: inline" class="btn btn-primary navbar-right navbar-btn">
-                 Sign Up
-               </button>
+               <a href="/sessions/new"><button type="button" class="btn btn-md btn-warning">Login</button></a>
+               <a href="/users/new"><button type="button" class="btn btn-md btn-warning">Sign Up</button></a>
             </div>
             <% end %>
          </div>
@@ -60,6 +55,7 @@
       <div class="media">
          <div class="media-left media-body pull-left">
             <h4 class="media-header"> <%= @user.first_name %> <%= @user.last_name[0] %>. </h4>
+            <h5><%= @user.username %> </h5>
             <ul class="list-unstyled">
                <li>Member since: <%= time_ago_in_words(@user.created_at) %> ago.</li>
                <li>Stuff</li>
@@ -67,6 +63,7 @@
          </div>
          <div class="media-right pull-right">
             <div class="button-group" role="group">
+               <a href="/users/<%= @current_user.id %>"><button type="button" class="btn btn-xs btn-info">Profile</button></a>
                <%= button_to "Logout", logout_path, method: "get", class: "red pull-left btn btn-danger btn-xs navbar-right navbar-btn" %>
             </div>
          </div>

@@ -1,0 +1,62 @@
+/*
+/////////////////////////////////////////////////////////////
+               Document CSS
+/////////////////////////////////////////////////////////////
+*/
+.container {
+   margin-top: 40px;
+}
+
+/*
+/////////////////////////////////////////////////////////////
+               Profile Dashboard CSS
+/////////////////////////////////////////////////////////////
+*/
+
+#profile-wrapper {
+   z-index: 9;
+   position: fixed;
+   margin-top: 35px;
+   /*background-color: black;*/
+   background-image:
+      radial-gradient(
+         rgba(0, 0, 0, 0.33), rgba(0, 0, 0, 0.79)
+      );
+
+   text-align: center;
+   color: #D2CECE;
+   border: 3px #20C1D2 solid;
+   border-radius: 10px;
+   display: none;
+   padding: 10px;
+}
+
+#drop-btn {
+   color: grey;
+   background-color: #20C1D2;
+   border-color: #2F4854;
+}
+
+/*
+/////////////////////////////////////////////////////////////
+               Profile CSS
+/////////////////////////////////////////////////////////////
+*/
+
+// Pages //
+
+.mock-page {
+   border: 2px black solid;
+}
+
+
+
+
+
+
+
+
+
+
+
+//

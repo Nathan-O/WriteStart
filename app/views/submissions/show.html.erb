@@ -1,4 +1,4 @@
-<div class="container">
+<div class="page-wrapper">
 
    <header>
       <div class="page-header">
@@ -8,8 +8,21 @@
    </header>
 
    <div class="col-md-8 col-md-offset-2">
+      <% if @author == current_user %>
+      <%= button_to "Delete", { action: "destroy", id: @submission.id }, method: :delete, class: "btn btn-xs btn-danger", data: { confirm: "Are you sure?" } %>
+      <% else %>
+      <a href="/submissions/<%= @submission.id %>/edits/new">
+         <button class="btn btn-xs btn-default">Edit</button>
+      </a>
+      <a href="/users/<%= @author.id %>">
+         <button class="btn btn-xs btn-success">Author's Profile</button>
+      </a>
+      <% end %>
       <p> Genre: <%= @submission.genre %> </p>
       <% content = simple_format(@submission.content) %>
       <p> <%= content %> </p>
    </div>
 </div>
+
+
+<!-- < button_to "Delete", { action: "delete", id: @submission.id }, method: :delete, data: { confirm: "Are you sure?" } > -->

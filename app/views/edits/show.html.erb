@@ -1,4 +1,4 @@
-<div class="container">
+<div class="wrapper">
 
    <header>
       <div class="page-header">
@@ -12,5 +12,7 @@
       <p> Genre: <%= @submission.genre %> </p>
       <% line_edits = simple_format(@edit.line_edits) %>
       <p> <%= line_edits %> </p>
+      <% notes = simple_format(@edit.notes) %>
+      <p>Notes: <%= notes %> </p>
    </div>
 </div>

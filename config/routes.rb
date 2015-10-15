@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
    post "/sessions", to: "sessions#create"
 
-   get "/sessions/destroy", to: "sessions#destroy", as: "logout"
+   delete "/sessions/destroy", to: "sessions#destroy", as: "logout"
 
    # Submission Routes #
    get "submissions", to: "submissions#index"
@@ -34,9 +34,13 @@ Rails.application.routes.draw do
 
    patch "/submissions/:id/edit", to: "submissions#update"
 
+   delete "/submissions/:id", to: "submissions#destroy"
+
    # Edit Routes #
    get "/submissions/:id/edits/new", to: "edits#new"
+
    post "/edits", to: "edits#create"
+
    get "/edits/:id", to: "edits#show"
 end
 
