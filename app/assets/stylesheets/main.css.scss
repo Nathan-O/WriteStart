@@ -3,8 +3,14 @@
                Document CSS
 /////////////////////////////////////////////////////////////
 */
+
+body {
+   background-color: grey;
+}
+
 .container {
    margin-top: 40px;
+   background-color: lightgrey;
 }
 
 /*
@@ -44,9 +50,19 @@
 */
 
 // Pages //
+#story-background {
+   background-color: black;
+}
 
 .mock-page {
    border: 2px black solid;
+   font-family: 'Special Elite', cursive;
+   background-color: white;
+   background-image:
+	 linear-gradient(
+	   to bottom,
+	   white, white 70%, black //#484444
+	);
 }
 
 

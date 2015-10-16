@@ -114,6 +114,7 @@
 				<a href="/fileTest"><button type="button" class="btn btn-sm btn-warning">Test File Page</button></a>
 			</div>
 
+			<hr>
 				<!-- Profile Body -->
 			<div class="col-md-12" id="profile-body">
 				<div class="col-md-4">
@@ -206,8 +207,8 @@
 						<div class="panel-heading">
 							<h3>Your Stories</h3>
 						</div>
-						<div class="panel-body">
-							<div class="col-md-8 col-md-offset-2">
+						<div class="panel-body" id="story-background">
+							<div class="col-md-10 col-md-offset-1">
 								<ul class="list-unstyled">
 									<% @submissions = @user.submissions %>
 									<% submissions = @submissions.order("created_at DESC") %>
@@ -215,7 +216,7 @@
 									<li>
 										<div class="row">
 											<!-- STORIES ARE RENDERED HERE!!!!! --> <!-- STORIES ARE RENDERED HERE!!!!! -->
-											<div class="mock-page">
+											<div class="mock-page col-md-12">
 												<h3> <%= submission.title %> </h3>
 												<% submission.content = submission.content.truncate_words(100) %>
 												<% content = simple_format(submission.content) %>
