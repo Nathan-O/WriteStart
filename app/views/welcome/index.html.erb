@@ -16,55 +16,14 @@
 				<a href="/sessions/new"><button type="button" class="btn btn-lg btn-warning">LogIn</button></a>
 				<a href="/fileTest"><button type="button" class="btn btn-lg btn-info">Test File Page</button></a>
 			</div>
-			<br/>
-
-
-
-					<!-- Pop Out Mini-profile -->
-				<div class="row">
-               <% if current_user %>
-               <% @current_user = current_user %>
-					<div class="col-md-3 media" id="pop-profile"> <!-- size 64X64 or smaller -->
-						<div class="media col-md-12">
-							<div class="media-body col-12">
-								<div class="media-left col-md-8">
-									<h5><%= @current_user.first_name %></h5>
-									<div class="btn-toolbar" role="toolbar">
-											<!-- Will * TRY * to have notifications -->
-										<div class="btn-group" role="group" id="notification-contianer">
-											<button type="button" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></button>
-											<button type="button" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></button>
-											<button type="button" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></button>
-										</div>
-										<div class="btn-group" role="group" id="profile-logout">
-											<a href="/users/<%= @current_user.id %>"><button type="button" class="btn btn-xs btn-info">Profile</button></a>
-
-											<%= button_to "Logout", logout_path, method: "get", class: "red pull-left btn btn-danger btn-xs navbar-right navbar-btn" %>
-
-										</div>
-									</div>
-								</div>
-								<div class ="media-right col-md-2">
-									<div id="img-wrap"> <!-- WORKS, BUT THERE IS A SIZING ISSUE -->
-										<img class="media-object img-thumbnail" id="minpro-pic" src="/assets/ProfilePic_placeholder.png">
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-               <% end %>
-				</div>
-
-
-
+			<hr>
 
 
 			<div class="col-md-12" id="app-guidelines">
 				<h2 class="info">Information Blurb</h2>
 				<h3>Rules(ish):</h3><br/>
 					<!--testing out a bootstrap abbreviation -->
-				<abbr title="HyperText Markup Language" class="initialism">HTML</abbr>
-
+				
 				<h4>Editing:</h4>
 				<div class="col-md-offset-1">
 					<blockquote>
@@ -97,7 +56,7 @@
 				</div>
 			</div>
 
-
+			<hr>
 
 			<!-- RAILS RENDER TEST -->
 			<div class="row">
@@ -116,9 +75,9 @@
 								<a href="/submissions/<%= submission.id %>">
 					            <button class="btn btn-xs btn-info">Read</button>
 					         </a>
-
-								<% content = simple_format(submission.content) %>
-								<p> <%= content %></p>
+								<% submission.content = submission.content.truncate_words(100) %>
+					         <% content = simple_format(submission.content) %>
+								<p> <%= content %> <a href="/submissions/<%= submission.id %>"><small>(Read More...)</small></a></p>
 							</div>
 						</li>
 						<% end %>

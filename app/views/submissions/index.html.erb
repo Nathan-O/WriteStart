@@ -11,12 +11,14 @@
          <h3> <%= submission.title %> </h3>
          <% @author = User.find(submission.user_id) %>
          <p>By: <%= @author.first_name %> <%= @author.last_name[0] %>.</p>
-         <a href="/submissions/<%= submission.id %>/edits/new">
-            <button class="btn btn-xs btn-default">Edit</button>
-         </a>
-         <a href="/submissions/<%= submission.id %>">
-            <button class="btn btn-xs btn-info">Read</button>
-         </a>
+         <div class="btn-group" role="group">
+            <a href="/submissions/<%= submission.id %>/edits/new">
+               <button class="btn btn-xs btn-default">Edit</button>
+            </a>
+         </div>
+         <% submission.content = submission.content.truncate_words(100) %>
+         <% content = simple_format(submission.content) %>
+         <p> <%= content %><a href="/submissions/<%= submission.id %>"><small>(Read More...)</small></a></p>
       </div>
       <% end %>
    </div>

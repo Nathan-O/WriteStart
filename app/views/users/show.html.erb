@@ -165,9 +165,9 @@
 							<div class="panel-body">
 								<ul class="list-unstyled">
 									<!-- *** USER CREATED EDITS *** -->
-									<% if @user_edits.length-1 > 0 %>
+									<% if @user_edits == !nil %>
 										<% @user_edits.each do |edit| %>
-										<% @sub = edit.submission %>
+										<% @sub = edit.submission || nil %>
 										<% @author = @sub.user || nil %>
 									<li>
 										<div class="edit-wrap">

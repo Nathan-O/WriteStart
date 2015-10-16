@@ -64,7 +64,7 @@
          <div class="media-right pull-right">
             <div class="button-group" role="group">
                <a href="/users/<%= @current_user.id %>"><button type="button" class="btn btn-xs btn-info">Profile</button></a>
-               <%= button_to "Logout", logout_path, method: "get", class: "red pull-left btn btn-danger btn-xs navbar-right navbar-btn" %>
+               <%= button_to "Logout", logout_path, method: "delete", class: "red pull-left btn btn-danger btn-xs navbar-right navbar-btn" %>
             </div>
          </div>
       </div>
@@ -72,3 +72,5 @@
   </div>
 
 </div>
+
+<!-- < link_to 'Logout', logout_path, method: 'delete'  > -->
